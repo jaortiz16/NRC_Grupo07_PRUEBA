@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Botones para resaltar jugadores</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #eee;
+    }
+
+    .resaltado {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Ejemplo Siblings()</center></h1>
+  <h2>Selecciona de jugadores de futbol</h2>
+
+  <div class="jugador">Messi</div>
+  <div class="jugador">Ronaldo </div>
+  <div class="jugador">Caicedo</div>
+  <div class="jugador">Haland</div>
+  <div class="jugador">Estupiñan</div>
+
+  <button id="resaltar-jugador1">Jugador 1</button>
+  <button id="resaltar-jugador2">Jugador 2</button>
+  <button id="resaltar-jugador3">Jugador 3</button>
+  <button id="resaltar-jugador4">Jugador 4</button>
+  <button id="resaltar-jugador5">Jugador 5</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador:nth-child(3)").siblings().removeClass("resaltado");
+        $(".jugador:nth-child(3)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador:nth-child(4)").siblings().removeClass("resaltado");
+        $(".jugador:nth-child(4)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador:nth-child(5)").siblings().removeClass("resaltado");
+        $(".jugador:nth-child(5)").addClass("resaltado");
+      });
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador:nth-child(6)").siblings().removeClass("resaltado");
+        $(".jugador:nth-child(6)").addClass("resaltado");
+      });
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador:nth-child(7)").siblings().removeClass("resaltado");
+        $(".jugador:nth-child(7)").addClass("resaltado");
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">Get y Post </a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>jQuery Filters</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+        $(document).ready(function() {
+            cargarUsuarios();
+        });
+
+        function cargarUsuarios() {
+            $.get("usuarios.xml", function(data) {
+                mostrarUsuarios(data);
+            });
+        }
+
+        function mostrarUsuarios(data) {
+            var listaUsuarios = $("#lista-usuarios");
+            var usuarios = $(data).find("usuario");
+
+            listaUsuarios.empty(); // Limpiar la lista antes de mostrar los usuarios
+
+            usuarios.each(function() {
+                var nombre = $(this).find("nombre").text();
+                var email = $(this).find("email").text();
+
+                var li = $("<li>").text(nombre + " - " + email);
+                listaUsuarios.append(li);
+            });
+        }
+
+        function guardarUsuario() {
+            var nombre = $("#nombre").val();
+            var email = $("#email").val();
+
+            var usuario = {
+                nombre: nombre,
+                email: email
+            };
+
+            $.post("guardarUsuario.php", usuario, function(response) {
+                console.log(response);
+                cargarUsuarios(); // Cargar la lista actualizada después de guardar el usuario
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+    <ul id="lista-usuarios"></ul>
+
+    <h2>Agregar Usuario</h2>
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="email" placeholder="Email">
+    <button onclick="guardarUsuario()">Guardar</button>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+            cargarUsuarios();
+        });
+
+        function cargarUsuarios() {
+            $.get("usuarios.xml", function(data) {
+                mostrarUsuarios(data);
+            });
+        }
+
+        function mostrarUsuarios(data) {
+            var listaUsuarios = $("#lista-usuarios");
+            var usuarios = $(data).find("usuario");
+
+            listaUsuarios.empty(); // Limpiar la lista antes de mostrar los usuarios
+
+            usuarios.each(function() {
+                var nombre = $(this).find("nombre").text();
+                var email = $(this).find("email").text();
+
+                var li = $("<li>").text(nombre + " - " + email);
+                listaUsuarios.append(li);
+            });
+        }
+
+        function guardarUsuario() {
+            var nombre = $("#nombre").val();
+            var email = $("#email").val();
+
+            var usuario = {
+                nombre: nombre,
+                email: email
+            };
+
+            $.post("guardarUsuario.php", usuario, function(response) {
+                console.log(response);
+                cargarUsuarios(); // Cargar la lista actualizada después de guardar el usuario
+            });
+        }
+</code></pre>
+      </div>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Team Start ====== -->
+    
+        
+
+
+
+
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

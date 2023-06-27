@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            cargarUsuarios();
+        });
+
+        function cargarUsuarios() {
+            $.get("usuarios.xml", function(data) {
+                mostrarUsuarios(data);
+            });
+        }
+
+        function mostrarUsuarios(data) {
+            var listaUsuarios = $("#lista-usuarios");
+            var usuarios = $(data).find("usuario");
+
+            listaUsuarios.empty(); // Limpiar la lista antes de mostrar los usuarios
+
+            usuarios.each(function() {
+                var nombre = $(this).find("nombre").text();
+                var email = $(this).find("email").text();
+
+                var li = $("<li>").text(nombre + " - " + email);
+                listaUsuarios.append(li);
+            });
+        }
+
+        function guardarUsuario() {
+            var nombre = $("#nombre").val();
+            var email = $("#email").val();
+
+            var usuario = {
+                nombre: nombre,
+                email: email
+            };
+
+            $.post("guardarUsuario.php", usuario, function(response) {
+                console.log(response);
+                cargarUsuarios(); // Cargar la lista actualizada después de guardar el usuario
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+    <ul id="lista-usuarios"></ul>
+
+    <h2>Agregar Usuario</h2>
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="email" placeholder="Email">
+    <button onclick="guardarUsuario()">Guardar</button>
+</body>
+</html>

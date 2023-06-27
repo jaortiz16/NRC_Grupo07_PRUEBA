@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("programacion.txt", function(data){
+      $("#div1").html("¡Contenido externo cargado exitosamente!");
+      alert("¡Contenido externo cargado exitosamente!");
+    }).fail(function(xhr, status, error) {
+      $("#div1").html("Error: " + xhr.status + ": " + error);
+      alert("Error: " + xhr.status + ": " + error);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<h1><center>Ejemplo de Load</center></h1>
+<h1>Teoria de programacion</h1>
+<div id="div1"><h2>Cambio  de texto con JQUERY AJAX </h2></div>
+
+<button>mostrar contenido</button>
+
+</body>
+</html>

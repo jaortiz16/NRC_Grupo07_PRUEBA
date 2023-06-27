@@ -1,0 +1,9 @@
+<p id="myParagraph">Por Historia Universal entendemos al estudio y recopilación de información sobre los hechos y procesos históricos que tienen como protagonista al ser humano, desde su aparición hasta nuestros días.
+
+En la Historia Universal se sintetiza, de manera cronológica y organizada, los acontecimientos más importantes del desarrollo de la humanidad y de sus civilizaciones.
+
+De este modo, se divide a la Historia Universal en épocas según los sucesos más significativos de la historia. De acuerdo con los investigadores, tales acontecimientos son los que marcan los cambios sociales más profundos a lo largo del tiempo.
+
+Por ejemplo, un momento relevante para la vida humana fue la aparición de la escritura. En efecto, la aparición de la escritura hacia el 3500 a.C. es el hecho que define el origen de la historia, ya que a partir de entonces el hombre logra dejar registros más fiables y numerosos de sus actividades.
+
+A través de la escritura, las sociedades dejaron testimonio de cómo hacían las cosas, de la forma en que sus pueblos estaban organizados, de su progreso tecnológico, etc. Además, la escritura permitió que los conocimientos se pudieran preservar y difundir con más facilidad.</p>

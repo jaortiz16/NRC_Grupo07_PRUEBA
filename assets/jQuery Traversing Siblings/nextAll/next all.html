@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Botones para resaltar jugadores</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador {
+      display: inline-block;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .resaltado {
+      border: 5px solid green;
+    }
+
+    .jugador img {
+      width: 200px; /* Ajusta el tamaño de las imágenes aquí */
+      height: auto;
+    }
+
+  ./img/i
+    .botones button {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body><center>
+  <h1><center>Ejemplo NextAll()</center></h1>
+  <h2>Selecciona una imagen</h2>
+
+  <div class="jugador" id="jugador1"><img src="./img/i8.png" alt="Jugador 1"></div>
+  <div class="jugador" id="jugador2"><img src="./img/i2.png" alt="Jugador 2"></div>
+  <div class="jugador" id="jugador3"><img src="./img/i3.png" alt="Jugador 3"></div>
+  <div class="jugador" id="jugador4"><img src="./img/i4.png" alt="Jugador 4"></div>
+  <div class="jugador" id="jugador5"><img src="./img/i10.jpeg" alt="Jugador 5"></div>
+  <br><br>
+
+  <div class="botones">
+    <button id="resaltar-jugador1">Imagen 1</button>
+    <button id="resaltar-jugador2">Imagen 2</button>
+    <button id="resaltar-jugador3">Imagen 3</button>
+    <button id="resaltar-jugador4">Imagen 4</button>
+    <button id="resaltar-jugador5">Imagen 5</button>
+  </div>
+</center>
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $("#jugador1").addClass("resaltado");
+        $("#jugador1").nextAll().removeClass("resaltado");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $("#jugador2").addClass("resaltado");
+        $("#jugador2").nextAll().removeClass("resaltado");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $("#jugador3").addClass("resaltado");
+        $("#jugador3").nextAll().removeClass("resaltado");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $("#jugador4").addClass("resaltado");
+        $("#jugador4").nextAll().removeClass("resaltado");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $("#jugador5").addClass("resaltado");
+        $("#jugador5").nextAll().removeClass("resaltado");
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+

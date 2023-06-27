@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #e3f2fd; /* Fondo celeste */
+  border: 2px solid blue; /* Bordes azules */
+}
+
+td, th {
+  border: 1px solid blue; /* Bordes azules */
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #c5cae9; /* Fondo celeste más claro para filas pares */
+}
+</style>
+</head>
+<body>
+<h1><center>Ejemplo filter tabla</center></h1>
+<h2>Tabla de datos</h2>  
+<input id="myInput" type="text" placeholder="Buscar..">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Correo</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>Andre</td>
+    <td>25</td>
+    <td>jaja@tupapi.com</td>
+  </tr>
+  <tr>
+    <td>Angel</td>
+    <td>22</td>
+    <td>angel@cruzeta.com</td>
+  </tr>
+  <tr>
+    <td>Karina</td>
+    <td>40</td>
+    <td>kary@suf.com</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+    <td>35</td>
+    <td>tumamiQjefe.com</td>
+  </tr>
+  <tr>
+    <td>Alexander</td>
+    <td>35</td>
+    <td>a_r@test.com</td>
+  </tr>
+  <tr>
+    <td>Marina</td>
+    <td>23</td>
+    <td>hola_32@fast.com</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

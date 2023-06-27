@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Efecto de Partículas con jQuery</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+    <style>
+      h1, h2, h3{
+        color: #fff;
+      }
+      *{
+        border-radius: 10px;
+      }
+      body {
+  background: url(assets/images/fondoweb.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+      #container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+        overflow: hidden;
+        margin: 0 auto;
+        background: white;
+      }
+  
+      .particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #ff0000;
+        border-radius: 50%;
+        text-align: center;
+      }
+  
+      .elemento {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        background-color: gray;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      #containerx {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+    }
+    #imagex {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    #imagex:hover {
+      transform: scale(1.2);
+    }
+    #backgroundx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    #containerx:hover #backgroundx {
+      opacity: 1;
+    }
+      #menu {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .menu-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        text-align: center;
+      }
+  
+      .menu-button .icon {
+        font-size: 24px;
+        text-align: center;
+      }
+  
+      .menu-button.active {
+        transform: scale(1.2);
+      }
+  
+      .menu-button.active .icon {
+        color: #ff0000;
+      }
+  
+      #canvas {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #000;
+        overflow: hidden;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .particle2 {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: explode 1s ease-in-out forwards;
+        text-align: center;
+      }
+  
+      @keyframes explode {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+  
+        100% {
+          opacity: 0;
+          transform: scale(2);
+        }
+      }
+  
+      #canvas2 {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #fff;
+        border: 1px solid #000;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .form-group {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+  
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+        color: black;
+      }
+  
+      .form-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+  
+      .form-input:focus {
+        border-color: #ff6600;
+        outline: none;
+        transform: scale(1.1);
+      }
+  
+      .form-input:valid {
+        border-color: green;
+      }
+  
+      .form-input:invalid {
+        border-color: red;
+      }
+  
+      .form-input.error {
+        border-color: red;
+      }
+  
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        text-align: center;
+      }
+  
+      .text-container {
+        width: 400px;
+        height: 200px;
+        background-color: #000;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .text {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+  
+      .content {
+        width: 400px;
+        background-color: #000;
+        padding: 20px;
+        color: black;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .toggle-button {
+        padding: 10px;
+        background-color: #ff6600;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      .hidden-content {
+        display: none;
+        text-align: center;
+      }
+  
+      #container5 {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #000000;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .particle5 {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+
+ <!-- ====== Header Start ====== -->
+ <header class="ud-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Logo" />
+          </a>
+          <button class="navbar-toggler">
+            <span class="toggler-icon"> </span>
+            <span class="toggler-icon"> </span>
+            <span class="toggler-icon"> </span>
+          </button>
+
+          <div class="navbar-collapse">
+            <ul id="nav" class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="ud-menu-scroll" href="#home">Home</a>
+              </li>
+
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery</a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Selectores jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Eventos de jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      jQuery Ocultar/Mostrar
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Desvanecimiento de jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Slide jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      jQuery Animado
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="404.html" class="ud-submenu-link">jQuery Detener animaciones</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery,HTML Y CSS</a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Obtener contenido y atributos
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Establecer contenido y atributos
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Añadir elementos/contenido
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Quitar elementos/contenido
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery obtener y establecer clases CSS
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      Método jQuery css()
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery y AJAX </a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                        <a href="Ancestors.html" class="ud-submenu-link">
+                          jQuery Traversing Ancestors
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="Desendants.html" class="ud-submenu-link">
+                          jQuery Traversing Descendants
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Traversing Siblings.html" class="ud-submenu-link">
+                          jQuery Traversing Siblings
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Traversing Filtering.html" class="ud-submenu-link">
+                          jQuery Traversing Filtering
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Filters.html" class="ud-submenu-link">
+                          Filtros jQuery
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery AJAX load() Method.html" class="ud-submenu-link">Método jQuery AJAX load()</a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="get y post.html" class="ud-submenu-link">Métodos jQuery AJAX get() y post()</a>
+                      </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="navbar-btn d-none d-sm-inline-block">
+            <a href="login.html" class="ud-main-btn ud-login-btn">
+              Sign In
+            </a>
+            <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+              Sign Up
+            </a>
+          </div> -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ====== Header End ====== -->
+
+<!-- ====== Hero Start ====== -->
+<section class="ud-hero" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
+          <h1 class="ud-hero-title">
+           Ejemplos JQuery Parte I
+          </h1>
+          <p class="ud-hero-desc">
+            Multiples ejemplos desarrollados con JQuery para fines educativos.
+          </p>
+          <ul class="ud-hero-buttons">
+            <!-- <li>
+              <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                Download Now
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/uideck/play-bootstrap" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-link-btn">
+                Learn More <i class="lni lni-arrow-right"></i>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+        <div
+          class="ud-hero-brands-wrapper wow fadeInUp"
+          data-wow-delay=".3s"
+        >
+          <img src="assets/images/hero/brand.svg" alt="brand" />
+        </div>
+        <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
+          <img src="assets/images/hero/hero-image.svg" alt="hero-image" />
+          <img
+            src="assets/images/hero/dotted-shape.svg"
+            alt="shape"
+            class="shape shape-1"
+          />
+          <img
+            src="assets/images/hero/dotted-shape.svg"
+            alt="shape"
+            class="shape shape-2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ====== Hero End ====== -->
+<div class="container" style="background: #00000051;">
+  
+
+  <h1 class="text-center my-5">Ejemplos</h1>
+  <h2 class="text-center my-5">Eventos</h2>
+  <h3 class="text-center my-5">Click</h3>
+  <div id="container"></div>
+  <h3 class="text-center my-5">Dblclick</h3>
+  <div class="elemento m-auto my-5"></div>
+  <div class="elemento m-auto my-5"></div>
+  <div class="elemento m-auto my-5"></div>
+  <h3 class="text-center my-5">MouseEnter</h3>
+  <div id="containerx" class="m-auto my-5">
+    <div id="imagex" style="background-image: url('./assets/images/fondo1.jpg');"></div>
+    <div id="backgroundx"></div>
+  </div>
+  <h3 class="text-center my-5">MouseLeave</h3>
+  <div id="menu" class="my-5">
+    <div class="menu-button">
+      <span class="icon">&#9776;</span>
+    </div>
+    <div class="menu-button">
+      <span class="icon">&#9733;</span>
+    </div>
+    <div class="menu-button">
+      <span class="icon">&#9829;</span>
+    </div>
+    <div class="menu-button">
+      <span class="icon">&#9992;</span>
+    </div>
+  </div>
+  <h3 class="text-center my-5">MouseDown</h3>
+  <div id="canvas2" class="my-5"></div>
+  <h3 class="text-center my-5">MouseUp</h3>
+  <div id="canvas" class="my-5"></div>
+  <h3 class="text-center my-5">Focus y Blur</h3>
+  <form>
+    <div class="form-group my-5">
+      <label class="form-label" style="color: white;" for="username">Nombre de usuario</label>
+      <input class="form-control"  type="text" id="username" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" style="color: white;" for="password">Contraseña</label>
+      <input class="form-control" type="password" id="password" required>
+    </div>
+  </form>
+  <h3 class="text-center my-5">Fade In y Out</h3>
+  <div class="text-container">
+    <div class="text">Texto de ejemplo</div>
+  </div>
+  <br>
+  <h3 class="text-center my-5">Slide con show y hide</h3>
+  <div class="content my-5">
+    <div class="toggle-button">Mostrar/Ocultar</div>
+    <div class="hidden-content">
+      <p>Contenido oculto que se desliza</p>
+    </div>
+  </div>
+  <h3 class="text-center my-5">Animate</h3>
+  <div class="d-flex justify-content-center">
+    <button id="btnStart" class="btn btn-primary" style="height: 50px;">¡Haz clic aquí!</button>
+  </div>
+  
+  <div id="container5" class="my-5"></div>
+  <ul class="ud-hero-buttons">
+    <li>
+      <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+        REGRESAR
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

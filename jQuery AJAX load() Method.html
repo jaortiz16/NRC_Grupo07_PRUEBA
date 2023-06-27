@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">Filter table</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Filter List</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">Filter Anything</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>jQuery Filters</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("./historia.txt");
+  });
+});
+</script>
+</head>
+<body>
+  <h1><center>Ejemplo de jQuery AJAX</center></h1>
+<div id="div1"><h2>Cambio de texto</h2></div>
+
+<button>Obtener contenido externo</button>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("./historia.txt");
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Team Start ====== -->
+    
+        <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("programacion.txt", function(data){
+      $("#div1").html("¡Contenido externo cargado exitosamente!");
+      alert("¡Contenido externo cargado exitosamente!");
+    }).fail(function(xhr, status, error) {
+      $("#div1").html("Error: " + xhr.status + ": " + error);
+      alert("Error: " + xhr.status + ": " + error);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<h1><center>Ejemplo de Load</center></h1>
+<h1>Teoria de programacion</h1>
+<div id="div1"><h2>Cambio  de texto con JQUERY AJAX </h2></div>
+
+<button>mostrar contenido</button>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("button").click(function(){
+    $.get("programacion.txt", function(data){
+      $("#div1").html("¡Contenido externo cargado exitosamente!");
+      alert("¡Contenido externo cargado exitosamente!");
+    }).fail(function(xhr, status, error) {
+      $("#div1").html("Error: " + xhr.status + ": " + error);
+      alert("Error: " + xhr.status + ": " + error);
+    });
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    
+<section id="contact" class="ud-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("peliculas.txt", function(responseTxt, statusTxt, xhr){
+      if(statusTxt == "success")
+        $("#div1").html("¡Contenido externo cargado exitosamente!");
+      if(statusTxt == "error")
+        $("#div1").html("Error el contenido no se pudo cargar : " + xhr.status + ": " + xhr.statusText);
+    });
+  });
+});
+</script>
+</head>
+<body>
+  <h1><center>Ejemplo de Load 2</center></h1>
+  <h1>Resumen de pelicula</h1>
+<div id="div1"><h2>Texto cambiado por jQuery AJAX </h2></div>
+
+<button>Traer contenido externo</button>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("peliculas.txt", function(responseTxt, statusTxt, xhr){
+      if(statusTxt == "success")
+        $("#div1").html("¡Contenido externo cargado exitosamente!");
+      if(statusTxt == "error")
+        $("#div1").html("Error el contenido no se pudo cargar : " + xhr.status + ": " + xhr.statusText);
+    });
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+
+
+
+
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,379 @@
+<!-- =========
+
+	Template Name: Play
+	Author: UIdeck
+	Author URI: https://uideck.com/
+	Support: https://uideck.com/support/
+	Version: 1.1
+
+========== -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">Parent</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Parents</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">ParentsUntil</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>JQuery Traversing Ancestors</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .red-text {
+      color: red;
+    }
+    .green-bold {
+      color: green;
+      font-weight: bold;
+    }
+    #resultContainer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+  </style>
+              
+                <h1><center>Ejemplo de uso de la función parent() de jQuery</center></h1><br><br>
+  <div id="YoSoyTuPadre">
+    <h3>Ubicacion del texto ingresado</h3><br>
+    <input type="text" id="inputField" /><br><br>
+    
+    <button id="parentButton">Mostrar Padre</button><br><br>
+    <div id="resultContainer"></div>
+  </div>
+
+
+  <script>
+    $(document).ready(function() {
+      $('#parentButton').click(function() {
+        var inputText = $('#inputField').val();
+        var parentElement = $('#inputField').parent();
+        var parentId = parentElement.attr('id');
+        
+        $('#inputField').addClass('red-text');
+        alert('Texto ingresado: ' + inputText + '\nID del padre: ' + parentId);
+
+        $('#inputField').removeClass('red-text').addClass('green-bold').val(inputText.toUpperCase());
+        
+        var resultContainer = $('#resultContainer');
+        resultContainer.text(inputText.toUpperCase());
+        resultContainer.width(resultContainer.textWidth() + 15);
+      });
+    });
+
+    // Extensión de jQuery para obtener el ancho del texto
+    $.fn.textWidth = function() {
+      var html_org = $(this).html();
+      var html_calc = '<span>' + html_org + '</span>';
+      $(this).html(html_calc);
+      var width = $(this).find('span:first').width();
+      $(this).html(html_org);
+      return width;
+    };
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#parentButton').click(function() {
+        var inputText = $('#inputField').val();
+        var parentElement = $('#inputField').parent();
+        var parentId = parentElement.attr('id');
+        
+        $('#inputField').addClass('red-text');
+        alert('Texto ingresado: ' + inputText + '\nID del padre: ' + parentId);
+
+        $('#inputField').removeClass('red-text').addClass('green-bold').val(inputText.toUpperCase());
+        
+        var resultContainer = $('#resultContainer');
+        resultContainer.text(inputText.toUpperCase());
+        resultContainer.width(resultContainer.textWidth() + 15);
+      });
+    });
+
+    // Extensión de jQuery para obtener el ancho del texto
+    $.fn.textWidth = function() {
+      var html_org = $(this).html();
+      var html_calc = '<span>' + html_org + '</span>';
+      $(this).html(html_calc);
+      var width = $(this).find('span:first').width();
+      $(this).html(html_org);
+      return width;
+    };
+</code></pre>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Team Start ====== -->
+    <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #padre1 {
+      background-color: gray;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    .inner-div {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .inner-div h1 {
+      color: black;
+    }
+
+    .celeste {
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+  <div class="celeste" id="padre2">
+    <div class="container" id="padre1">
+      <div class="inner-div" >
+        <h1>Ejemplo de la funcion parents()</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="celeste-button">Haz clic aquí</button>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.celeste-button').click(function() {
+        var parents = $('.inner-div').parents();
+        var message = 'IDs de los elementos padres:\n';
+
+        parents.each(function() {
+          var parentId = $(this).attr('id');
+          message += parentId + '\n';
+        });
+
+        alert(message);
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('.celeste-button').click(function() {
+        var parents = $('.inner-div').parents();
+        var message = 'IDs de los elementos padres:\n';
+
+        parents.each(function() {
+          var parentId = $(this).attr('id');
+          message += parentId + '\n';
+        });
+
+        alert(message);
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    </section>
+
+
+        <section id="contact" class="ud-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #PadreEnRango {
+      background-color: yellow;
+      padding: 20px;
+     
+      margin: 0 auto;
+    }
+
+    .inner-div {
+      background-color: gray;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .inner-div h1 {
+      color: black;
+    }
+
+    .celeste {
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <div class="celeste" id="Padre2EnRango">
+    <div class="container" id="PadreEnRango">
+      <div class="inner-div" id="inner-div" >
+        <h1>Ejemplo parentsUntil()</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="celeste-button">Haz clic aquí</button>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.celeste-button').click(function() {
+        var parents = $('.inner-div').parentsUntil('.cuerpo');
+        var message = 'IDs de los elementos padres:\n';
+
+        parents.each(function() {
+          var parentId = $(this).attr('id');
+          message += parentId + '\n';
+        });
+
+        alert(message);
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('.celeste-button').click(function() {
+        var parents = $('.inner-div').parentsUntil('.cuerpo');
+        var message = 'IDs de los elementos padres:\n';
+
+        parents.each(function() {
+          var parentId = $(this).attr('id');
+          message += parentId + '\n';
+        });
+
+        alert(message);
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

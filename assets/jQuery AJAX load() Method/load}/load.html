@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("./historia.txt");
+  });
+});
+</script>
+</head>
+<body>
+	<h1><center>Ejemplo de jQuery AJAX</center></h1>
+<div id="div1"><h2>Cambio de texto</h2></div>
+
+<button>Obtener contenido externo</button>
+
+</body>
+</html>

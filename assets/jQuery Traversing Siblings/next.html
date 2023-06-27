@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Botones para resaltar jugadores</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #eee;
+    }
+
+    .resaltado {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Ejemplo next()</center></h1>
+  <h2>Selecciona algun generos musicales</h2>
+
+  <div class="jugador">Clasico</div>
+  <div class="jugador">Rock </div>
+  <div class="jugador">Electronica</div>
+  <div class="jugador">Cumbia</div>
+  <div class="jugador">Salsa</div>
+
+  <button id="resaltar-jugador1">Genero musical 1</button>
+  <button id="resaltar-jugador2">Genero musical 2</button>
+  <button id="resaltar-jugador3">Genero musical 3</button>
+  <button id="resaltar-jugador4">Genero musical 4</button>
+  <button id="resaltar-jugador5">Genero musical 5</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $(".jugador:nth-child(3)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $(".jugador:nth-child(4)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $(".jugador:nth-child(5)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $(".jugador:nth-child(6)").addClass("resaltado");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador").removeClass("resaltado");
+        $(".jugador:nth-child(7)").addClass("resaltado");
+      });
+    });
+  </script>
+</body>
+</html>

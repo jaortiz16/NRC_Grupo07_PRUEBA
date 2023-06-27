@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de uso de la función parent() de jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .red-text {
+      color: red;
+    }
+    .green-bold {
+      color: green;
+      font-weight: bold;
+    }
+    #resultContainer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body><center>
+  <div id="YoSoyTuPadre">
+  	<h1>Ubicacion del texto ingresado</h1><br>
+    <input type="text" id="inputField" /><br><br>
+    
+    <button id="parentButton">Mostrar Padre</button><br><br>
+    <div id="resultContainer"></div>
+  </div>
+</center>
+
+  <script>
+    $(document).ready(function() {
+      $('#parentButton').click(function() {
+        var inputText = $('#inputField').val();
+        var parentElement = $('#inputField').parent();
+        var parentId = parentElement.attr('id');
+        
+        $('#inputField').addClass('red-text');
+        alert('Texto ingresado: ' + inputText + '\nID del padre: ' + parentId);
+
+        $('#inputField').removeClass('red-text').addClass('green-bold').val(inputText.toUpperCase());
+        
+        var resultContainer = $('#resultContainer');
+        resultContainer.text(inputText.toUpperCase());
+        resultContainer.width(resultContainer.textWidth() + 15);
+      });
+    });
+
+    // Extensión de jQuery para obtener el ancho del texto
+    $.fn.textWidth = function() {
+      var html_org = $(this).html();
+      var html_calc = '<span>' + html_org + '</span>';
+      $(this).html(html_calc);
+      var width = $(this).find('span:first').width();
+      $(this).html(html_org);
+      return width;
+    };
+  </script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myButton").on("click", function() {
+    var searchValue = $("#myInput").val().toLowerCase();
+    $("#myList li").each(function() {
+      var listItemText = $(this).text().toLowerCase();
+      $(this).removeClass("highlight");
+      if (listItemText.indexOf(searchValue) > -1) {
+        var highlightedText = "<span class='highlight'>" + searchValue + "</span>";
+        var updatedText = listItemText.replace(new RegExp(searchValue, "gi"), highlightedText);
+        $(this).html(updatedText);
+      }
+    });
+  });
+});
+</script>
+<style>
+.highlight {
+  background-color: #e3f2fd; /* Fondo celeste */
+  color: red; /* Texto en rojo */
+}
+</style>
+</head>
+<body>
+
+<h2>Sagas de libros</h2>  
+<input id="myInput" type="text" placeholder="Buscar..">
+<button id="myButton">Buscar</button>
+<br><br>
+
+<ul id="myList">
+  <li>Canción de hielo y fuego</li>
+  <li>El Señor de los Anillos</li>
+  <li>Harry Potter</li>
+  <li>Crónicas de Narnia</li>
+  <li>Las Crónicas de Kane</li>
+</ul>
+
+</body>
+</html>

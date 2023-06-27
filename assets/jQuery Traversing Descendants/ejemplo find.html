@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Aplicación</title>
+  <style>
+    .container {
+      width: 400px;
+      height: 300px;
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inner-div {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inner-div img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .nested-div {
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+      background-color: blue;
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nested-div:nth-child(2) {
+      background-color: green;
+    }
+
+    .nested-div:nth-child(3) {
+      background-color: red;
+    }
+
+    .nested-div-inner {
+      text-align: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#btnFindImage").click(function() {
+        var result = $(".container").find(".inner-div img");
+        if (result.length > 0) {
+          var elementId = result.closest(".container").attr("id");
+          alert("Se encontró una imagen en el elemento con ID: " + elementId);
+        } else {
+          alert("No se encontró ninguna imagen en el contenedor.");
+        }
+      });
+
+      $("#btnFindText").click(function() {
+        var result = $(".nested-div").find(".nested-div-inner:contains('DIV 3')");
+        if (result.length > 0) {
+          var elementId = result.closest(".nested-div").attr("id");
+          alert("Se encontró el texto 'DIV 3' en el elemento con ID: " + elementId);
+        } else {
+          alert("No se encontró el texto 'DIV 3' en ningún div anidado.");
+        }
+      });
+
+      $("#btnFindText1").click(function() {
+        var result = $(".nested-div").find(".nested-div-inner:contains('DIV 1')");
+        if (result.length > 0) {
+          var elementId = result.closest(".nested-div").attr("id");
+          alert("Se encontró el texto 'DIV 1' en el elemento con ID: " + elementId);
+        } else {
+          alert("No se encontró el texto 'DIV 1' en ningún div anidado.");
+        }
+      });
+
+      $("#btnFindText2").click(function() {
+        var result = $(".nested-div").find(".nested-div-inner:contains('DIV 2')");
+        if (result.length > 0) {
+          var elementId = result.closest(".nested-div").attr("id");
+          alert("Se encontró el texto 'DIV 2' en el elemento con ID: " + elementId);
+        } else {
+          alert("No se encontró el texto 'DIV 2' en ningún div anidado.");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <center>
+    <h1>Ejemplo función Find()</h1>
+    <div class="container-fluid inline-block">
+      <div class="container" id="contenedor-de-imagen">
+        <div class="inner-div">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz9KSClK4RrlH96Wh_ZYLOmrgomZIynmmKFkZVKlg7&s" alt="Imagen">
+        </div>
+      </div>
+      <br>
+      <button id="btnFindImage">Ubicación Imagen</button>
+      <br><br>
+      <div class="container" id="container2">
+        <div class="nested-div" id="contenedorDIV1">
+          <div class="nested-div-inner"><br><br> DIV 1</div>
+        </div>
+        <div class="nested-div" id="contenedorDIV2">
+          <div class="nested-div-inner"><br><br> DIV 2</div>
+        </div>
+        <div class="nested-div" id="contenedorDIV3">
+          <div class="nested-div-inner"><br><br> DIV 3</div>
+        </div>
+      </div>
+      <br>
+      <button id="btnFindText1">Ubicación DIV 1</button> 
+      <button id="btnFindText2">Ubicación DIV 2</button>
+      <button id="btnFindText">Ubicación DIV 3</button>
+      <br>
+    </div>
+  </center>
+</body>
+</html>

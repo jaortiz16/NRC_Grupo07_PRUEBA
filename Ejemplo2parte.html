@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Efecto de Partículas con jQuery</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+    <style>
+      h1, h2, h3{
+        color: #fff;
+      }
+      *{
+        border-radius: 10px;
+      }
+      body {
+  background: url(assets/images/fondoweb.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+      #container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+        overflow: hidden;
+        margin: 0 auto;
+        background: white;
+      }
+  
+      .particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #ff0000;
+        border-radius: 50%;
+        text-align: center;
+      }
+  
+      .elemento {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        background-color: gray;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      #containerx {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+    }
+    #imagex {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    #imagex:hover {
+      transform: scale(1.2);
+    }
+    #backgroundx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    #containerx:hover #backgroundx {
+      opacity: 1;
+    }
+      #menu {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .menu-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        text-align: center;
+      }
+  
+      .menu-button .icon {
+        font-size: 24px;
+        text-align: center;
+      }
+  
+      .menu-button.active {
+        transform: scale(1.2);
+      }
+  
+      .menu-button.active .icon {
+        color: #ff0000;
+      }
+  
+      #canvas {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #000;
+        overflow: hidden;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .particle2 {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: explode 1s ease-in-out forwards;
+        text-align: center;
+      }
+  
+      @keyframes explode {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+  
+        100% {
+          opacity: 0;
+          transform: scale(2);
+        }
+      }
+  
+      #canvas2 {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #fff;
+        border: 1px solid #000;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .form-group {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+  
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+        color: black;
+      }
+  
+      .form-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+  
+      .form-input:focus {
+        border-color: #ff6600;
+        outline: none;
+        transform: scale(1.1);
+      }
+  
+      .form-input:valid {
+        border-color: green;
+      }
+  
+      .form-input:invalid {
+        border-color: red;
+      }
+  
+      .form-input.error {
+        border-color: red;
+      }
+  
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        text-align: center;
+      }
+  
+      .text-container {
+        width: 400px;
+        height: 200px;
+        background-color: #000;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .text {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+  
+      .content {
+        width: 400px;
+        background-color: #000;
+        padding: 20px;
+        color: black;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .toggle-button {
+        padding: 10px;
+        background-color: #ff6600;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      .hidden-content {
+        display: none;
+        text-align: center;
+      }
+  
+      #container5 {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: #000000;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .particle5 {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+      }
+      #contenido5 {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    #contenido6 {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    #contenido7 {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    h1 {
+      color: black;
+      text-align: center;
+    }
+
+    p {
+      color: white;
+      line-height: 1.5;
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    .eliminar100 {
+  color: red;
+  font-size: 20px;
+}
+.importante {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.azul {
+  color: blue;
+}
+    </style>
+</head>
+<body>
+
+ <!-- ====== Header Start ====== -->
+ <header class="ud-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Logo" />
+          </a>
+          <button class="navbar-toggler">
+            <span class="toggler-icon"> </span>
+            <span class="toggler-icon"> </span>
+            <span class="toggler-icon"> </span>
+          </button>
+
+          <div class="navbar-collapse">
+            <ul id="nav" class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="ud-menu-scroll" href="#home">Home</a>
+              </li>
+
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery</a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Selectores jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Eventos de jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      jQuery Ocultar/Mostrar
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Desvanecimiento de jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      Slide jQuery
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo1parte.html" class="ud-submenu-link">
+                      jQuery Animado
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="404.html" class="ud-submenu-link">jQuery Detener animaciones</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery,HTML Y CSS</a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Obtener contenido y atributos
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Establecer contenido y atributos
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Añadir elementos/contenido
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery HTML Quitar elementos/contenido
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      jQuery obtener y establecer clases CSS
+                    </a>
+                  </li>
+                  <li class="ud-submenu-item">
+                    <a href="Ejemplo2parte.html" class="ud-submenu-link">
+                      Método jQuery css()
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-has-children">
+                <a href="javascript:void(0)"> Ejemplos jQuery y AJAX </a>
+                <ul class="ud-submenu">
+                  <li class="ud-submenu-item">
+                        <a href="Ancestors.html" class="ud-submenu-link">
+                          jQuery Traversing Ancestors
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="Desendants.html" class="ud-submenu-link">
+                          jQuery Traversing Descendants
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Traversing Siblings.html" class="ud-submenu-link">
+                          jQuery Traversing Siblings
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Traversing Filtering.html" class="ud-submenu-link">
+                          jQuery Traversing Filtering
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery Filters.html" class="ud-submenu-link">
+                          Filtros jQuery
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="jQuery AJAX load() Method.html" class="ud-submenu-link">Método jQuery AJAX load()</a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="get y post.html" class="ud-submenu-link">Métodos jQuery AJAX get() y post()</a>
+                      </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="navbar-btn d-none d-sm-inline-block">
+            <a href="login.html" class="ud-main-btn ud-login-btn">
+              Sign In
+            </a>
+            <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+              Sign Up
+            </a>
+          </div> -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ====== Header End ====== -->
+
+<!-- ====== Hero Start ====== -->
+<section class="ud-hero" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
+          <h1 class="ud-hero-title">
+           Ejemplos JQuery Parte 2
+          </h1>
+          <p class="ud-hero-desc">
+            Multiples ejemplos desarrollados con JQuery para fines educativos.
+          </p>
+          <ul class="ud-hero-buttons">
+            <!-- <li>
+              <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                Download Now
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/uideck/play-bootstrap" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-link-btn">
+                Learn More <i class="lni lni-arrow-right"></i>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+        <div
+          class="ud-hero-brands-wrapper wow fadeInUp"
+          data-wow-delay=".3s"
+        >
+          <img src="assets/images/hero/brand.svg" alt="brand" />
+        </div>
+        <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
+          <img src="assets/images/hero/hero-image.svg" alt="hero-image" />
+          <img
+            src="assets/images/hero/dotted-shape.svg"
+            alt="shape"
+            class="shape shape-1"
+          />
+          <img
+            src="assets/images/hero/dotted-shape.svg"
+            alt="shape"
+            class="shape shape-2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ====== Hero End ====== -->
+<div class="container" style="background: #00000051;">
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#btn001").click(function(){
+        alert("Texto: " + $("#obtenervalor").text());
+      });
+      $("#btn002").click(function(){
+        alert("HTML: " + $("#obtenervalor").html());
+      });
+    });
+    $(document).ready(function(){
+  $("#button100").click(function(){
+    alert("Value: " + $("#test100").val());
+  });
+});
+    $(document).ready(function(){
+  $("#button101").click(function(){
+    alert($("#obtenervalor1").attr("href"));
+  });
+});
+    $(document).ready(function(){
+  $("#btn102").click(function(){
+    $("#obtener1").text("Aplicaciones de tecnologias web!");
+  });
+  $("#btn103").click(function(){
+    $("#obtener2").html("<b>Juan Fernando Galarraga</b>");
+  });
+  $("#btn104").click(function(){
+    $("#obtener3").val("GRUPO 7");
+  });
+});
+$(document).ready(function(){
+  $("#btn105").click(function(){
+    $("#obtener4").text(function(i, origText){
+      return "Antiguo texto: " + origText + " Nuevo texto: Apliaciones tecnologias web! (index: " + i + ")"; 
+    });
+  });
+
+  $("#btn106").click(function(){
+    $("#obtener5").html(function(i, origText){
+      return "Antiguo html: " + origText + " Nuevo html: GRUPO <b>7</b> (index: " + i + ")"; 
+    });
+  });
+});
+$(document).ready(function(){
+  $("#btn107").click(function(){
+    $("#obtener6").attr("href", "https://www.youtube.com/");
+  });
+});
+$(document).ready(function(){
+  $("#btn108").click(function(){
+    $("#obtener7").attr({
+      "href" : "https://twitter.com/",
+      "title" : "TWITTER"
+    });
+  });
+});
+$(document).ready(function(){
+  $("#btn109").click(function(){
+    $("#obtener8").attr("href", function(i, origValue){
+      return origValue + "/watch?v=q9alfj_PCpU&list=PLAzlSdU-KYwVvj6opCrXNvuDExGApmiud/"; 
+    });
+  }); 
+});
+$(document).ready(function(){
+  $("#btn110").click(function(){
+    $("#obtener9").append(" <b>Aplicaciones tecnologias web</b>.");
+  });
+
+  $("#btn111").click(function(){
+    $("#obtener10").append("<li>GRUPO 7</li>");
+  });
+});
+$(document).ready(function(){
+  $("#btn112").click(function(){
+    $("#obtener11").prepend("<b>Texto anterior</b>. ");
+  });
+  $("#btn113").click(function(){
+    $("#obtener12").prepend("<li>GRUPO 1</li>");
+  });
+});
+function appendText() {
+  var txt1 = "<p>Aplicaciones Web.</p>";        // Create text with HTML
+  var txt2 = $("<p></p>").text("GRUPO 7.");  // Create text with jQuery
+  var txt3 = document.createElement("p");
+  txt3.innerHTML = "PRUEBA.";         // Create text with DOM
+  $("#contenido7").append(txt1, txt2, txt3);   // Append new elements
+}
+$(document).ready(function(){
+  $("#btn115").click(function(){
+    $("#img2").before("<b>Antes</b>");
+  });
+
+  $("#btn116").click(function(){
+    $("#img2").after("<i>Despues</i>");
+  });
+});
+function afterText() {
+  var txt1 = "<b>I </b>";           // Create element with HTML
+  var txt2 = $("<i></i>").text("love ");  // Create with jQuery
+  var txt3 = document.createElement("b");   // Create with DOM
+  txt3.innerHTML = "jQuery!";
+  $("#img1").after(txt1, txt2, txt3);    // Insert new elements after img
+}
+$(document).ready(function(){
+  $("#btn118").click(function(){
+    $("#division1").remove();
+  });
+});
+$(document).ready(function(){
+  $("#btn119").click(function(){
+    $("#division2").empty();
+  });
+});
+$(document).ready(function(){
+  $("#btn120").click(function(){
+    $("p").remove(".eliminar100");
+  });
+});
+$(document).ready(function(){
+  $("#btn121").click(function(){
+    $("#obtener001").addClass("azul");
+    $("#obtener002").addClass("azul");
+    $("#obtener003").addClass("azul");
+    $("#division5").addClass("importante");
+  });
+});
+$(document).ready(function(){
+  $("#btn122").click(function(){
+    $("#division6").addClass("importante azul");
+  });
+});
+$(document).ready(function(){
+  $("#btn123").click(function(){
+    $("#obtener004").removeClass("azul");
+    $("#obtener005").removeClass("azul");
+    $("#obtener006").removeClass("azul");
+  });
+});
+$(document).ready(function(){
+  $("#btn124").click(function(){
+    $("#obtener007").toggleClass("azul");
+    $("#obtener008").toggleClass("azul");
+    $("#obtener009").toggleClass("azul");
+  });
+});
+$(document).ready(function(){
+  $("#btn125").click(function(){
+    alert("Background color = " + $("#obtener010").css("background-color"));
+  });
+});
+$(document).ready(function(){
+  $("#btn126").click(function(){
+    $("#obtener011").css("background-color", "yellow");
+    $("#obtener012").css("background-color", "yellow");
+    $("#obtener013").css("background-color", "yellow");
+    $("#obtener014").css("background-color", "yellow");
+  });
+});
+$(document).ready(function(){
+  $("#btn127").click(function(){
+    $("#obtener015").css({"background-color": "yellow", "font-size": "200%"});
+    $("#obtener016").css({"background-color": "yellow", "font-size": "200%"});
+    $("#obtener017").css({"background-color": "yellow", "font-size": "200%"});
+    $("#obtener018").css({"background-color": "yellow", "font-size": "200%"});
+  });
+});
+  </script>
+</head>
+<body>
+  <div id="contenido5">
+    <h1>jQuery - Obtener contenido y atributos</h1>
+    <p id="obtenervalor">#8 <b>Obtener contenido - text(), html(), y val()</b> Manipulación del DOM con jQuery.</p>
+    <button id="btn001">Ver texto</button>
+    <button id="btn002">Ver código</button>
+  </div>
+  <br>
+  <div id="contenido5">
+<p>Nombre: <input type="text" id="test100" value="Juan Fernando Galarraga"></p>
+
+<button id="button100">Mostrar Valor</button>
+</div>
+<br>
+<div id="contenido5">
+<p><a href="https://www.facebook.com/" id="obtenervalor1">Facebook</a></p>
+
+<button id="button101">Mostrar valor del enlace</button>
+</div>
+<br>
+<div id="contenido5">
+    <h1>jQuery - Establecer contenido y atributos</h1>
+    <p id="obtener1">Establecer contenido: texto (), html () y val ()</p>
+<p id="obtener2">Usaremos tres métodos para configurar el contenido.</p>
+
+<p>Campo de ingreso de datos: <input type="text" id="obtener3" value="Juan Fernando Galarraga"></p>
+
+<button id="btn102">Establecer Texto</button>
+<button id="btn103">Establecer HTML</button>
+<button id="btn104">Establecer Valor</button>
+  </div>
+  <br>
+  <div id="contenido5">
+    <p id="obtener4">Aplicaciones <b>tecnologias</b> web.</p>
+<p id="obtener5">GRUPO <b>7</b> PRUEBA.</p>
+
+<button id="btn105">Mostrar viejo/Nuevo texto</button>
+<button id="btn106">Mostrar viejo/Nuevo HTML</button>
+  </div>
+  <br>
+  <div id="contenido5">
+    <p><a href="https://www.instagram.com/" id="obtener6">INSTAGRAM</a></p>
+
+<button id="btn107">Cambiar valor de la referencia</button>
+
+<p>Da click en el boton para cambiar el valor del enlace</p>
+  </div>
+  <br>
+<div id="contenido5">
+    <p><a href="https://www.tiktok.com/" title="TIKTOK" id="obtener7">TIKTOK.com</a></p>
+
+<button id="btn108">Cambiar titulo y referencia</button>
+
+<p>Da click en el boton para cambiar el valor del enlace</p>
+
+  </div>
+  <br>
+  <div id="contenido5">
+    <p><a href="https://www.youtube.com/" id="obtener8">YOUTUBE</a></p>
+
+<button id="btn109">Cambiar el valor de la referencia</button>
+
+<p>Da click en el boton para cambiar el valor del enlace</p>
+
+  </div>
+  <br>
+  <div id="contenido6">
+    <h1>jQuery - Agregar elementos</h1>
+    <p id="obtener9">Agregar nuevo contenido HTML</p>
+<p id="obtener9">Veremos cuatro métodos jQuery que se utilizan para agregar contenido nuevo</p>
+
+<ol id="obtener10">
+  <li style="color: white;">GRUPO 1</li>
+  <li style="color: white;">GRUPO 2</li>
+  <li style="color: white;">GRUPO 3</li>
+  <li style="color: white;">GRUPO 4</li>
+  <li style="color: white;">GRUPO 5</li>
+  <li style="color: white;">GRUPO 6</li>
+</ol>
+
+<button id="btn110">Añadir texto</button>
+<button id="btn111">Añadir item a la lista</button>
+  </div>
+  <br>
+  <div id="contenido6">
+    <p id="obtener11">Método jQuery prepend()</p>
+<p id="obtener11">El prepend()método jQuery inserta contenido AL PRINCIPIO de los elementos HTML seleccionados.</p>
+
+<ol id="obtener12">
+  <li style="color: white;">GRUPO 2</li>
+  <li style="color: white;">GRUPO 3</li>
+  <li style="color: white;">GRUPO 4</li>
+  <li style="color: white;">GRUPO 5</li>
+  <li style="color: white;">GRUPO 6</li>
+  <li style="color: white;">GRUPO 7</li>
+</ol>
+
+<button id="btn112">Añadir texto anterior</button>
+<button id="btn113">Añadir item anterior a la lista</button>
+  </div>
+  <br>
+  <div id="contenido7">
+    <p>Agregue varios elementos nuevos con append() y prepend()</p>
+<button id="btn114" onclick="appendText()">Añadir varios elementos</button>
+  </div>
+  <br>
+  <div id="contenido6">
+    <img id="img2" src="assets/images/jquery1.png" alt="jQuery" width="100" height="140"><br><br>
+
+<button id="btn115">Añadir antes</button>
+<button id="btn116">Añadir despues</button>
+  </div>
+  <br>
+  <div id="contenido6">
+    <img id="img1" src="assets/images/jquery1.png" alt="jQuery" width="100" height="140">
+
+<p>Presiona el boton para añdir texto despues de la imagen</p>
+
+<button id="btn117" onclick="afterText()">Añadir despues</button>
+  </div>
+  <br>
+    <div id="contenido6">
+      <h1>jQuery - Eliminar elementos</h1>
+    <div id="division1" style="height:150px;width:850px;border:1px solid black;background-color:lightblue;">
+
+Eliminar elementos/contenido
+<p>Para eliminar elementos y contenido, existen principalmente dos métodos jQuery</p>
+<p>El método jQuery remove()elimina los elementos seleccionados y sus elementos secundarios.</p>
+</div>
+<br>
+
+<button id="btn118">Eliminar division</button>
+  </div>
+  <br>
+  <div id="contenido6">
+      <p>Método jQuery vacío ()</p>
+    <div id="division2" style="height:150px;width:850px;border:1px solid black;background-color:lightblue;">
+
+<p>El empty()método jQuery elimina los elementos secundarios de los elementos seleccionados</p>
+<p>EJEMPLO</p>
+
+</div>
+<br>
+
+<button id="btn119">Vaciar la division</button>
+  </div>
+  <br>
+  <div id="contenido6">
+      <p>Filtrar los Elementos a Eliminar</p>
+<p class="eliminar100">El método jQuery remove()también acepta un parámetro, que le permite filtrar los elementos que se eliminarán.</p>
+<p class="eliminar100">El parámetro puede ser cualquiera de las sintaxis del selector de jQuery.</p>
+<p>El siguiente ejemplo elimina todos los elementos con class="eliminar100"</p> 
+
+<button id="btn120" >Eliminar todos los elementos de color rojo</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h1 id="obtener001">jQuery - Obtener y establecer clases CSS</h1>
+<h2 id="obtener002">jQuery manipulando CSS</h2>
+
+<p id="obtener003">Método jQuery addClass()</p>
+<p id="obtener003">jQuery tiene varios métodos para la manipulación de CSS.</p>
+
+<div id="division5" style="color: white;">El siguiente ejemplo muestra cómo agregar atributos de clase a diferentes elementos. Por supuesto, puede seleccionar varios elementos al agregar clases</div><br>
+
+<button id="btn121">Agregar clases a los elementos</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <div id="division6" style="color: white;">También puede especificar varias clases dentro del addClass()método</div>
+<div id="division7" style="color: white;">addClass()- Agrega una o más clases a los elementos seleccionados</div>
+<br>
+
+<button id="btn122">Agregar clases al primer elemento</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h1 id="obtener004" class="azul">Método jQuery removeClass()</h1>
+<h2 id="obtener005" class="azul">El siguiente ejemplo muestra cómo eliminar un atributo de clase específico de diferentes elemento</h2>
+
+<p id="obtener006" class="azul">removeClass()- Elimina una o más clases de los elementos seleccionados</p>
+<p id="obtener006">GRUPO 7</p>
+
+<button id="btn123">Quitar clase del elemento</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h1 id="obtener007">Método jQuery toggleClass()</h1>
+<h2 id="obtener008">El siguiente ejemplo mostrará cómo usar el toggleClass()método jQuery. Este método alterna entre agregar/eliminar clases de los elementos seleccionados</h2>
+
+<p id="obtener009">toggleClass()- Alterna entre agregar/eliminar clases de los elementos seleccionados</p>
+<p id="obtener009">css()- Establece o devuelve el atributo de estilo</p>
+
+<button id="btn124">Activar/desactivar clase</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h2>jQuery - método css()</h2>
+
+<p id="obtener010" style="background-color:#ff0000">Método jQuery css()</p>
+<p id="obtener010" style="background-color:#00ff00">El css()método establece o devuelve una o más propiedades de estilo para los elementos seleccionados.</p>
+<p id="obtener010" style="background-color:#0000ff">Devolver una propiedad CSS</p>
+
+<button id="btn125">Mostrar el valor del fondo</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h2>Establecer una propiedad CSS</h2>
+
+<p id="obtener011" style="background-color:#ff0000">Para establecer una propiedad CSS específica, use la siguiente sintaxis:</p>
+<p id="obtener012" style="background-color:#00ff00">css("propertyname","value");</p>
+<p id="obtener013" style="background-color:#0000ff">El siguiente ejemplo establecerá el valor de color de fondo para TODOS los elementos coincidentes:</p>
+
+<p id="obtener014">EJEMPLO</p>
+
+<button id="btn126">Establecer color de fondo</button>
+  </div>
+  <br>
+
+  <div id="contenido6">
+      <h2>Establecer múltiples propiedades CSS</h2>
+
+<p id="obtener015" style="background-color:#ff0000">Para establecer varias propiedades CSS, utilice la siguiente sintaxis:</p>
+<p id="obtener016" style="background-color:#00ff00">css({"propertyname":"value","propertyname":"value",...});</p>
+<p id="obtener017" style="background-color:#0000ff">El siguiente ejemplo establecerá un color de fondo y un tamaño de fuente para TODOS los elementos coincidentes:</p>
+
+<p id="obtener018">EJEMPLO</p>
+
+<button id="btn127">Establecer multiples estilos</button>
+  </div>
+  <br>
+  <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

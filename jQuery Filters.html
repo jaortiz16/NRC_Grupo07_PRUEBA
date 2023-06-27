@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">Filter table</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Filter List</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">Filter Anything</a>
+                  </li>
+                
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>jQuery Filters</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+$(document).ready(function(){
+  $("#myInput1").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable1 tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #e3f2fd; /* Fondo celeste */
+  border: 2px solid blue; /* Bordes azules */
+}
+
+td, th {
+  border: 1px solid blue; /* Bordes azules */
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #c5cae9; /* Fondo celeste más claro para filas pares */
+}
+</style>
+<h1><center>Ejemplo filter tabla</center></h1>
+<h2>Tabla de datos</h2>  
+<input id="myInput1" type="text" placeholder="Buscar..">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Correo</th>
+  </tr>
+  </thead>
+  <tbody id="myTable1">
+  <tr>
+    <td>Andre</td>
+    <td>25</td>
+    <td>jaja@tupapi.com</td>
+  </tr>
+  <tr>
+    <td>Angel</td>
+    <td>22</td>
+    <td>angel@cruzeta.com</td>
+  </tr>
+  <tr>
+    <td>Karina</td>
+    <td>40</td>
+    <td>kary@suf.com</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+    <td>35</td>
+    <td>tumamiQjefe.com</td>
+  </tr>
+  <tr>
+    <td>Alexander</td>
+    <td>35</td>
+    <td>a_r@test.com</td>
+  </tr>
+  <tr>
+    <td>Marina</td>
+    <td>23</td>
+    <td>hola_32@fast.com</td>
+  </tr>
+  </tbody>
+</table>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("#myInput1").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable1 tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Team Start ====== -->
+    
+        <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+$(document).ready(function(){
+  $("#myButton").on("click", function() {
+    var searchValue = $("#myInput2").val().toLowerCase();
+    $("#myList li").each(function() {
+      var listItemText = $(this).text().toLowerCase();
+      $(this).removeClass("highlight");
+      if (listItemText.indexOf(searchValue) > -1) {
+        var highlightedText = "<span class='highlight'>" + searchValue + "</span>";
+        var updatedText = listItemText.replace(new RegExp(searchValue, "gi"), highlightedText);
+        $(this).html(updatedText);
+      }
+    });
+  });
+});
+</script>
+<style>
+.highlight {
+  background-color: #e3f2fd; /* Fondo celeste */
+  color: red; /* Texto en rojo */
+}
+</style>
+
+
+<h2>Sagas de libros</h2>  
+<input id="myInput2" type="text" placeholder="Buscar..">
+<button id="myButton">Buscar</button>
+<br><br>
+
+<ul id="myList">
+  <li>Canción de hielo y fuego</li>
+  <li>El Señor de los Anillos</li>
+  <li>Harry Potter</li>
+  <li>Crónicas de Narnia</li>
+  <li>Las Crónicas de Kane</li>
+</ul>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("#myButton").on("click", function() {
+    var searchValue = $("#myInput2").val().toLowerCase();
+    $("#myList li").each(function() {
+      var listItemText = $(this).text().toLowerCase();
+      $(this).removeClass("highlight");
+      if (listItemText.indexOf(searchValue) > -1) {
+        var highlightedText = "<span class='highlight'>" + searchValue + "</span>";
+        var updatedText = listItemText.replace(new RegExp(searchValue, "gi"), highlightedText);
+        $(this).html(updatedText);
+      }
+    });
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    
+<section id="contact" class="ud-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+$(document).ready(function(){
+  $("#myInput3").on("keyup", function() {
+    var searchValue = $(this).val().toLowerCase();
+    var paragraphText = $("#myParagraph").text();
+    var highlightedText = paragraphText.replace(new RegExp(searchValue, "gi"), '<span class="highlight3">$&</span>');
+    $("#myParagraph").html(highlightedText);
+  });
+});
+</script>
+<style>
+.highlight3 {
+  background-color: #e3f2fd; /* Fondo celeste */
+  color: red; /* Texto en rojo */
+}
+</style>
+
+<h1><center>Ejemplo de filter anything</center></h1>
+<h2>Busqueda de palabras</h2>
+<input id="myInput3" type="text" placeholder="Ingrese una palabra">
+<br><br>
+<p id="myParagraph">Por Historia Universal entendemos al estudio y recopilación de información sobre los hechos y procesos históricos que tienen como protagonista al ser humano, desde su aparición hasta nuestros días.
+
+En la Historia Universal se sintetiza, de manera cronológica y organizada, los acontecimientos más importantes del desarrollo de la humanidad y de sus civilizaciones.
+
+De este modo, se divide a la Historia Universal en épocas según los sucesos más significativos de la historia. De acuerdo con los investigadores, tales acontecimientos son los que marcan los cambios sociales más profundos a lo largo del tiempo.
+
+Por ejemplo, un momento relevante para la vida humana fue la aparición de la escritura. En efecto, la aparición de la escritura hacia el 3500 a.C. es el hecho que define el origen de la historia, ya que a partir de entonces el hombre logra dejar registros más fiables y numerosos de sus actividades.
+
+A través de la escritura, las sociedades dejaron testimonio de cómo hacían las cosas, de la forma en que sus pueblos estaban organizados, de su progreso tecnológico, etc. Además, la escritura permitió que los conocimientos se pudieran preservar y difundir con más facilidad.</p>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function(){
+  $("#myInput3").on("keyup", function() {
+    var searchValue = $(this).val().toLowerCase();
+    var paragraphText = $("#myParagraph").text();
+    var highlightedText = paragraphText.replace(new RegExp(searchValue, "gi"), '<span class="highlight3">$&</span>');
+    $("#myParagraph").html(highlightedText);
+  });
+});
+</code></pre>
+      </div>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+
+
+
+
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

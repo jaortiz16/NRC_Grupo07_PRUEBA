@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">First</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Last</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">EQ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#pricing">Filter</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#hola">Not</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>jQuery Traversing Siblings</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .first-highlight {
+      background-color: lightblue;
+      border: none;
+      font-size: inherit;
+      padding: 0;
+      color: red; /* Agregamos esta línea para cambiar el color de las letras a rojo */
+    }
+
+    .first-highlight-border {
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Ejemplo función First()</center></h1>
+  <h2>Lista de cantantes</h2>
+  <ul id="cantantes-list">
+    <li>Taylor Swift</li>
+    <li>Beyoncé</li>
+    <li>Michael Jackson</li>
+    <li>Adele</li>
+    <li>Elvis Presley</li>
+    <li>Whitney Houston</li>
+    <li>Bob Dylan</li>
+  </ul>
+  <button id="resaltar-btn">Implementar función First</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#resaltar-btn').click(function() {
+        $('#cantantes-list li').first().wrapInner('<span class="first-highlight"></span>');
+        $('#cantantes-list li .first-highlight').addClass('first-highlight-border');
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#resaltar-btn').click(function() {
+        $('#cantantes-list li').first().wrapInner('<span class="first-highlight"></span>');
+        $('#cantantes-list li .first-highlight').addClass('first-highlight-border');
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .last-highlight {
+      background-color: lightgreen;
+      border: 2px solid red;
+      color: blue;
+    }
+  </style>
+
+  <h1><center>Ejemplo función Last()</center></h1>
+  <h2>Mejores jugadores del mundo</h2>
+  <ul id="jugadores-list">
+    <li>Lionel Messi</li>
+    <li>Cristiano Ronaldo</li>
+    <li>Neymar Jr.</li>
+    <li>Kevin De Bruyne</li>
+    <li>Robert Lewandowski</li>
+    <li>Kylian Mbappé</li>
+    <li>Virgil van Dijk</li>
+  </ul>
+
+  <button id="resaltar-btn2">Implementar la función Last</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#resaltar-btn2').click(function() {
+        $('#jugadores-list li').removeClass('last-highlight');
+        $('#jugadores-list li').last().addClass('last-highlight');
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#resaltar-btn2').click(function() {
+        $('#jugadores-list li').removeClass('last-highlight');
+        $('#jugadores-list li').last().addClass('last-highlight');
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+
+    <!-- ====== Team Start ====== -->
+    
+        <section id="contact" class="ud-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .eq-highlight {
+      color: red;
+    }
+  </style>
+
+  <h1><center>Ejemplo función Eq()</center></h1>
+  <h2>Películas más taquilleras de la historia</h2>
+  <ul id="peliculas-list">
+    <li>Avengers: Endgame</li>
+    <li>Avatar</li>
+    <li>Titanic</li>
+    <li>Star Wars: El despertar de la Fuerza</li>
+    <li>Avengers: Infinity War</li>
+    <li>Jurassic World</li>
+  </ul>
+
+  <label for="numero">Ingresa el número de película (1-6):</label>
+  <input type="text" id="numero-input">
+  <button id="resaltar-btn">Resaltar</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#resaltar-btn').click(function() {
+        var numero = parseInt($('#numero-input').val());
+        if (numero >= 1 && numero <= 6) {
+          $('#peliculas-list li').eq(numero - 1).addClass('eq-highlight');
+        } else {
+          alert('Ingresa un número válido (1-6)');
+        }
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#resaltar-btn').click(function() {
+        var numero = parseInt($('#numero-input').val());
+        if (numero >= 1 && numero <= 6) {
+          $('#peliculas-list li').eq(numero - 1).addClass('eq-highlight');
+        } else {
+          alert('Ingresa un número válido (1-6)');
+        }
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+
+
+     <section id="pricing" class="ud-pricing">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .filter-resaltado {
+      background-color: pink;
+    }
+  </style>
+
+  <h1><center>Ejemplo Función Filter()</center></h1>
+  <h2>Deportes más practicados</h2>
+  <ul id="deportes-list">
+    <li class="bueno">Futbol</li>
+    <li class="malo">Cricket</li>
+    <li class="regular">Tenis</li>
+    <li class="bueno">Baloncesto</li>
+    <li class="malo">Golf</li>
+  </ul>
+
+  <label for="clase">Ingresa una clase de deporte (bueno, malo, regular):</label>
+  <input type="text" id="clase-input">
+  <button id="filtrar-btn">Filtrar</button>
+
+  <h2>Resultado:</h2>
+  <ul id="resultado-list"></ul>
+
+  <script>
+    $(document).ready(function() {
+      $('#filtrar-btn').click(function() {
+        var clase = $('#clase-input').val();
+        $('#deportes-list li').removeClass('filter-resaltado');
+        var elementosFiltrados = $('#deportes-list li').filter('.' + clase);
+        elementosFiltrados.addClass('filter-resaltado');
+        mostrarResultado(elementosFiltrados);
+      });
+
+      function mostrarResultado(elementos) {
+        var resultado = $('#resultado-list');
+        resultado.empty();
+        elementos.each(function() {
+          resultado.append('<li>' + $(this).text() + '</li>');
+        });
+      }
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#filtrar-btn').click(function() {
+        var clase = $('#clase-input').val();
+        $('#deportes-list li').removeClass('filter-resaltado');
+        var elementosFiltrados = $('#deportes-list li').filter('.' + clase);
+        elementosFiltrados.addClass('filter-resaltado');
+        mostrarResultado(elementosFiltrados);
+      });
+
+      function mostrarResultado(elementos) {
+        var resultado = $('#resultado-list');
+        resultado.empty();
+        elementos.each(function() {
+          resultado.append('<li>' + $(this).text() + '</li>');
+        });
+      }
+    });
+</code></pre>
+      </div>
+    </section>
+
+
+
+    <section id="hola" class="ud-hola">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .not-excelente {
+      font-weight: bold;
+    }
+    .not-regular {
+      font-style: italic;
+    }
+    .not-oculto {
+      display: none;
+    }
+  </style>
+
+  <h1><center>Ejemplo Función Not()</center></h1>
+  <h2>Mejores actrices actuales</h2>
+  <ul id="actrices-list">
+    <li class="not-excelente">Meryl Streep</li>
+    <li class="not-regular">Cate Blanchett</li>
+    <li class="not-excelente">Viola Davis</li>
+    <li class="not-regular">Natalie Portman</li>
+    <li class="not-excelente">Julianne Moore</li>
+  </ul>
+
+  <label for="clase">Ingresa el nombre de una clase (excelente o regular):</label>
+  <input type="text" id="clase-input">
+  <button id="ejecutar-btn">Ejecutar</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#ejecutar-btn').click(function() {
+        var clase = $('#clase-input').val();
+        $('#actrices-list li').removeClass('not-oculto');
+        $('#actrices-list li:not(.' + clase + ')').addClass('not-oculto');
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $('#ejecutar-btn').click(function() {
+        var clase = $('#clase-input').val();
+        $('#actrices-list li').removeClass('not-oculto');
+        $('#actrices-list li:not(.' + clase + ')').addClass('not-oculto');
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+    
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

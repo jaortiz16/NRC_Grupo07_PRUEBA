@@ -1,0 +1,2 @@
+<h2>Contenido cargado con la función load()</h2>
+<p>Este es un párrafo cargado desde otro archivo HTML utilizando la función load() de jQuery.</p>

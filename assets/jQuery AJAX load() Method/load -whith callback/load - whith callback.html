@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("peliculas.txt", function(responseTxt, statusTxt, xhr){
+      if(statusTxt == "success")
+        $("#div1").html("¡Contenido externo cargado exitosamente!");
+      if(statusTxt == "error")
+        $("#div1").html("Error el contenido no se pudo cargar : " + xhr.status + ": " + xhr.statusText);
+    });
+  });
+});
+</script>
+</head>
+<body>
+	<h1><center>Ejemplo de Load 2</center></h1>
+	<h1>Resumen de pelicula</h1>
+<div id="div1"><h2>Texto cambiado por jQuery AJAX </h2></div>
+
+<button>Traer contenido externo</button>
+
+</body>
+</html>

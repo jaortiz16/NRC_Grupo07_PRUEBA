@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style >
+      body{
+        background-color: orange;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play | Open source Project by UIdeck</title>
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">Sibling</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Next</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">NextAll</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#pricing">NextUntils</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-banner-content">
+              <h1>jQuery Traversing Siblings</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador1 {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #eee;
+    }
+
+    .resaltado1 {
+      background-color: yellow;
+    }
+  </style>
+
+  <h1><center>Ejemplo Siblings()</center></h1>
+  <h2>Selecciona de jugadores de futbol</h2>
+
+  <div class="jugador1">Messi</div>
+  <div class="jugador1">Ronaldo </div>
+  <div class="jugador1">Caicedo</div>
+  <div class="jugador1">Haland</div>
+  <div class="jugador1">Estupiñan</div>
+
+  <button id="resaltar-jugador1">Jugador 1</button>
+  <button id="resaltar-jugador2">Jugador 2</button>
+  <button id="resaltar-jugador3">Jugador 3</button>
+  <button id="resaltar-jugador4">Jugador 4</button>
+  <button id="resaltar-jugador5">Jugador 5</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador1:nth-child(3)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(3)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador1:nth-child(4)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(4)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador1:nth-child(5)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(5)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador1:nth-child(6)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(6)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador1:nth-child(7)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(7)").addClass("resaltado1");
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador1:nth-child(3)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(3)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador1:nth-child(4)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(4)").addClass("resaltado1");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador1:nth-child(5)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(5)").addClass("resaltado1");
+      });
+      
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador1:nth-child(6)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(6)").addClass("resaltado1");
+      });
+      
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador1:nth-child(7)").siblings().removeClass("resaltado1");
+        $(".jugador1:nth-child(7)").addClass("resaltado1");
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+
+    <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador2 {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #eee;
+    }
+
+    .resaltado2 {
+      background-color: green;
+    }
+  </style>
+  <h1><center>Ejemplo next()</center></h1>
+  <h2>Selecciona algún género musical</h2>
+
+  <div class="jugador2">Clasico</div>
+  <div class="jugador2">Rock</div>
+  <div class="jugador2">Electronica</div>
+  <div class="jugador2">Cumbia</div>
+  <div class="jugador2">Salsa</div>
+
+  <button id="resaltar-jugador1">Género musical 1</button>
+  <button id="resaltar-jugador2">Género musical 2</button>
+  <button id="resaltar-jugador3">Género musical 3</button>
+  <button id="resaltar-jugador4">Género musical 4</button>
+  <button id="resaltar-jugador5">Género musical 5</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(3)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(4)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(5)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(6)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(7)").addClass("resaltado2");
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(3)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(4)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(5)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(6)").addClass("resaltado2");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador2").removeClass("resaltado2");
+        $(".jugador2:nth-child(7)").addClass("resaltado2");
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+
+    <!-- ====== Team Start ====== -->
+    
+        <section id="contact" class="ud-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador-img {
+      display: inline-block;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .resaltado-img {
+      border: 5px solid green;
+    }
+
+    .jugador-img img {
+      width: 200px; /* Ajusta el tamaño de las imágenes aquí */
+      height: auto;
+    }
+
+    .botones button {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1><center>Ejemplo NextAll()</center></h1>
+    <h2>Selecciona una imagen</h2>
+
+    <div class="jugador-img" id="jugador-img1"><img src="./img/img/i8.png" alt="Jugador 1"></div>
+    <div class="jugador-img" id="jugador-img2"><img src="./img/img/i2.png" alt="Jugador 2"></div>
+    <div class="jugador-img" id="jugador-img3"><img src="./img/img/i3.png" alt="Jugador 3"></div>
+    <div class="jugador-img" id="jugador-img4"><img src="./img/img/i4.png" alt="Jugador 4"></div>
+    <div class="jugador-img" id="jugador-img5"><img src="./img/img/i10.jpeg" alt="Jugador 5"></div>
+    <br><br>
+
+    <div class="botones">
+      <button id="resaltar-jugador1">Imagen 1</button>
+      <button id="resaltar-jugador2">Imagen 2</button>
+      <button id="resaltar-jugador3">Imagen 3</button>
+      <button id="resaltar-jugador4">Imagen 4</button>
+      <button id="resaltar-jugador5">Imagen 5</button>
+    </div>
+  </center>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img1").addClass("resaltado-img");
+        $("#jugador-img1").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img2").addClass("resaltado-img");
+        $("#jugador-img2").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img3").addClass("resaltado-img");
+        $("#jugador-img3").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img4").addClass("resaltado-img");
+        $("#jugador-img4").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img5").addClass("resaltado-img");
+        $("#jugador-img5").nextAll().removeClass("resaltado-img");
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img1").addClass("resaltado-img");
+        $("#jugador-img1").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img2").addClass("resaltado-img");
+        $("#jugador-img2").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img3").addClass("resaltado-img");
+        $("#jugador-img3").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img4").addClass("resaltado-img");
+        $("#jugador-img4").nextAll().removeClass("resaltado-img");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador-img").removeClass("resaltado-img");
+        $("#jugador-img5").addClass("resaltado-img");
+        $("#jugador-img5").nextAll().removeClass("resaltado-img");
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+
+
+     <section id="pricing" class="ud-pricing">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .jugador-animal {
+      display: inline-block;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .resaltado-animal {
+      border: 7px solid blue;
+    }
+
+    .jugador-animal img {
+      width: 200px; /* Ajusta el tamaño de las imágenes aquí */
+      height: auto;
+    }
+
+    .botones button {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1><center>Ejemplo NextUntil()</center></h1>
+    <h2>Selecciona un animal</h2>
+
+    <div class="jugador-animal" id="jugador-animal1"><img src="./img/i1/i1.jpeg" alt="Jugador 1"></div>
+    <div class="jugador-animal" id="jugador-animal2"><img src="./img/i1/i2.jpeg" alt="Jugador 2"></div>
+    <div class="jugador-animal" id="jugador-animal3"><img src="./img/i1/i3.jpeg" alt="Jugador 3"></div>
+    <div class="jugador-animal" id="jugador-animal4"><img src="./img/i1/i4.jpeg" alt="Jugador 4"></div>
+    <div class="jugador-animal" id="jugador-animal5"><img src="./img/i1/i5.jpeg" alt="Jugador 5"></div>
+    <br><br>
+
+    <div class="botones">
+      <button id="resaltar-jugador1">Animal 1</button>
+      <button id="resaltar-jugador2">Animal 2</button>
+      <button id="resaltar-jugador3">Animal 3</button>
+      <button id="resaltar-jugador4">Animal 4</button>
+      <button id="resaltar-jugador5">Animal 5</button>
+    </div>
+  </center>
+
+  <script>
+    $(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal1").addClass("resaltado-animal");
+        $("#jugador-animal1").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal2").addClass("resaltado-animal");
+        $("#jugador-animal2").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal3").addClass("resaltado-animal");
+        $("#jugador-animal3").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal4").addClass("resaltado-animal");
+        $("#jugador-animal4").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal5").addClass("resaltado-animal");
+        $("#jugador-animal5").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+    });
+  </script>
+            </div>
+          </div>
+        </div>
+          <div class="docs-code-block">
+                            <pre class="shadow-lg rounded"><code class="html hljs">$(document).ready(function() {
+      $("#resaltar-jugador1").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal1").addClass("resaltado-animal");
+        $("#jugador-animal1").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador2").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal2").addClass("resaltado-animal");
+        $("#jugador-animal2").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador3").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal3").addClass("resaltado-animal");
+        $("#jugador-animal3").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador4").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal4").addClass("resaltado-animal");
+        $("#jugador-animal4").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+
+      $("#resaltar-jugador5").click(function() {
+        $(".jugador-animal").removeClass("resaltado-animal");
+        $("#jugador-animal5").addClass("resaltado-animal");
+        $("#jugador-animal5").nextUntil(".jugador-animal").removeClass("resaltado-animal");
+      });
+    });
+</code></pre>
+      </div>
+    </section>
+    <ul class="ud-hero-buttons">
+                <li>
+                  <a href="index.html" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    REGRESAR
+                  </a>
+                </li>
+              </ul>
+    
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <a href="javascript:void(0)" class="back-to-top">
+      <i class="lni lni-chevron-up"> </i>
+    </a>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

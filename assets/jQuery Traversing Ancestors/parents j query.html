@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html id="patriarca">
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: gray;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    .inner-div {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .inner-div h1 {
+      color: black;
+    }
+
+    .celeste {
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body id="padre3">
+
+  <div class="celeste" id="padre2">
+    <div class="container" id="padre1">
+      <div class="inner-div" >
+        <h1>Ejemplo de la funcion parents()</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="celeste-button">Haz clic aquí</button>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.celeste-button').click(function() {
+        var parents = $('.inner-div').parents();
+        var message = 'IDs de los elementos padres:\n';
+
+        parents.each(function() {
+          var parentId = $(this).attr('id');
+          message += parentId + '\n';
+        });
+
+        alert(message);
+      });
+    });
+  </script>
+</body>
+</html>
